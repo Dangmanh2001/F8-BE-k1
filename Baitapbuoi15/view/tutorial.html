@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial</title>
+    <style>
+      main {
+        --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+        --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
+        --toastify-icon-color-info: var(--toastify-color-info);
+        --toastify-icon-color-success: var(--toastify-color-success);
+        --toastify-icon-color-warning: var(--toastify-color-warning);
+        --toastify-icon-color-error: var(--toastify-color-error);
+        --toastify-toast-width: 320px;
+        --toastify-toast-background: #fff;
+        --toastify-toast-min-height: 64px;
+        --toastify-toast-max-height: 800px;
+        --toastify-font-family: sans-serif;
+        --toastify-z-index: 9999;
+        --toastify-text-color-light: #757575;
+        --toastify-text-color-dark: #fff;
+        --toastify-text-color-info: #fff;
+        --toastify-text-color-success: #fff;
+        --toastify-text-color-warning: #fff;
+        --toastify-text-color-error: #fff;
+        --toastify-spinner-color: #616161;
+        --toastify-spinner-color-empty-area: #e0e0e0;
+        --toastify-color-progress-light: linear-gradient(
+          90deg,
+          #4cd964,
+          #5ac8fa,
+          #007aff,
+          #34aadc,
+          #5856d6,
+          #ff2d55
+        );
+        --toastify-color-progress-dark: #bb86fc;
+        --toastify-color-progress-info: var(--toastify-color-info);
+        --toastify-color-progress-success: var(--toastify-color-success);
+        --toastify-color-progress-warning: var(--toastify-color-warning);
+        --toastify-color-progress-error: var(--toastify-color-error);
+        box-sizing: border-box;
+        color: #fefefe;
+        font-family: Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        transition: all 0.3s ease-in-out;
+      }
+      br,
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 20px 0;
+      }
+      ul {
+        --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+        --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
+        --toastify-icon-color-info: var(--toastify-color-info);
+        --toastify-icon-color-success: var(--toastify-color-success);
+        --toastify-icon-color-warning: var(--toastify-color-warning);
+        --toastify-icon-color-error: var(--toastify-color-error);
+        --toastify-toast-width: 320px;
+        --toastify-toast-background: #fff;
+        --toastify-toast-min-height: 64px;
+        --toastify-toast-max-height: 800px;
+        --toastify-font-family: sans-serif;
+        --toastify-z-index: 9999;
+        --toastify-text-color-light: #757575;
+        --toastify-text-color-dark: #fff;
+        --toastify-text-color-info: #fff;
+        --toastify-text-color-success: #fff;
+        --toastify-text-color-warning: #fff;
+        --toastify-text-color-error: #fff;
+        --toastify-spinner-color: #616161;
+        --toastify-spinner-color-empty-area: #e0e0e0;
+        --toastify-color-progress-light: linear-gradient(
+          90deg,
+          #4cd964,
+          #5ac8fa,
+          #007aff,
+          #34aadc,
+          #5856d6,
+          #ff2d55
+        );
+        --toastify-color-progress-dark: #bb86fc;
+        --toastify-color-progress-info: var(--toastify-color-info);
+        --toastify-color-progress-success: var(--toastify-color-success);
+        --toastify-color-progress-warning: var(--toastify-color-warning);
+        --toastify-color-progress-error: var(--toastify-color-error);
+        box-sizing: border-box;
+        color: #fefefe;
+        font-family: Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        transition: all 0.3s ease-in-out;
+        list-style-position: inside;
+      }
+      li {
+        --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+        --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
+        --toastify-icon-color-info: var(--toastify-color-info);
+        --toastify-icon-color-success: var(--toastify-color-success);
+        --toastify-icon-color-warning: var(--toastify-color-warning);
+        --toastify-icon-color-error: var(--toastify-color-error);
+        --toastify-toast-width: 320px;
+        --toastify-toast-background: #fff;
+        --toastify-toast-min-height: 64px;
+        --toastify-toast-max-height: 800px;
+        --toastify-font-family: sans-serif;
+        --toastify-z-index: 9999;
+        --toastify-text-color-light: #757575;
+        --toastify-text-color-dark: #fff;
+        --toastify-text-color-info: #fff;
+        --toastify-text-color-success: #fff;
+        --toastify-text-color-warning: #fff;
+        --toastify-text-color-error: #fff;
+        --toastify-spinner-color: #616161;
+        --toastify-spinner-color-empty-area: #e0e0e0;
+        --toastify-color-progress-light: linear-gradient(
+          90deg,
+          #4cd964,
+          #5ac8fa,
+          #007aff,
+          #34aadc,
+          #5856d6,
+          #ff2d55
+        );
+        --toastify-color-progress-dark: #bb86fc;
+        --toastify-color-progress-info: var(--toastify-color-info);
+        --toastify-color-progress-success: var(--toastify-color-success);
+        --toastify-color-progress-warning: var(--toastify-color-warning);
+        --toastify-color-progress-error: var(--toastify-color-error);
+        list-style-position: inside;
+        box-sizing: border-box;
+        color: #fefefe;
+        font-family: Roboto, sans-serif;
+        padding: 0;
+        scroll-behavior: smooth;
+        transition: all 0.3s ease-in-out;
+        margin: 12px;
+      }
+      button {
+        --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+        --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
+        --toastify-icon-color-info: var(--toastify-color-info);
+        --toastify-icon-color-success: var(--toastify-color-success);
+        --toastify-icon-color-warning: var(--toastify-color-warning);
+        --toastify-icon-color-error: var(--toastify-color-error);
+        --toastify-toast-width: 320px;
+        --toastify-toast-background: #fff;
+        --toastify-toast-min-height: 64px;
+        --toastify-toast-max-height: 800px;
+        --toastify-font-family: sans-serif;
+        --toastify-z-index: 9999;
+        --toastify-text-color-light: #757575;
+        --toastify-text-color-dark: #fff;
+        --toastify-text-color-info: #fff;
+        --toastify-text-color-success: #fff;
+        --toastify-text-color-warning: #fff;
+        --toastify-text-color-error: #fff;
+        --toastify-spinner-color: #616161;
+        --toastify-spinner-color-empty-area: #e0e0e0;
+        --toastify-color-progress-light: linear-gradient(
+          90deg,
+          #4cd964,
+          #5ac8fa,
+          #007aff,
+          #34aadc,
+          #5856d6,
+          #ff2d55
+        );
+        --toastify-color-progress-dark: #bb86fc;
+        --toastify-color-progress-info: var(--toastify-color-info);
+        --toastify-color-progress-success: var(--toastify-color-success);
+        --toastify-color-progress-warning: var(--toastify-color-warning);
+        --toastify-color-progress-error: var(--toastify-color-error);
+        box-sizing: border-box;
+        font-family: Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        transition: all 0.3s ease-in-out;
+        background: none;
+        font-weight: 500;
+        outline: none;
+        background-color: #555;
+        border: 1px solid #555;
+        border-radius: 99px;
+        bottom: 20px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+        position: fixed;
+        right: 1.5rem;
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+      }
+      table {
+        --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+        --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
+        --toastify-icon-color-info: var(--toastify-color-info);
+        --toastify-icon-color-success: var(--toastify-color-success);
+        --toastify-icon-color-warning: var(--toastify-color-warning);
+        --toastify-icon-color-error: var(--toastify-color-error);
+        --toastify-toast-width: 320px;
+        --toastify-toast-background: #fff;
+        --toastify-toast-min-height: 64px;
+        --toastify-toast-max-height: 800px;
+        --toastify-font-family: sans-serif;
+        --toastify-z-index: 9999;
+        --toastify-text-color-light: #757575;
+        --toastify-text-color-dark: #fff;
+        --toastify-text-color-info: #fff;
+        --toastify-text-color-success: #fff;
+        --toastify-text-color-warning: #fff;
+        --toastify-text-color-error: #fff;
+        --toastify-spinner-color: #616161;
+        --toastify-spinner-color-empty-area: #e0e0e0;
+        --toastify-color-progress-light: linear-gradient(
+          90deg,
+          #4cd964,
+          #5ac8fa,
+          #007aff,
+          #34aadc,
+          #5856d6,
+          #ff2d55
+        );
+        --toastify-color-progress-dark: #bb86fc;
+        --toastify-color-progress-info: var(--toastify-color-info);
+        --toastify-color-progress-success: var(--toastify-color-success);
+        --toastify-color-progress-warning: var(--toastify-color-warning);
+        --toastify-color-progress-error: var(--toastify-color-error);
+        box-sizing: border-box;
+        color: #fefefe;
+        font-family: Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid #555;
+        border-radius: 5px;
+        bottom: 4rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        left: 1rem;
+        min-height: 90vh;
+        position: fixed;
+        right: 1rem;
+        top: 1rem;
+        width: calc(100vw - 2rem);
+      }
+      thead {
+        --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+        --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
+        --toastify-icon-color-info: var(--toastify-color-info);
+        --toastify-icon-color-success: var(--toastify-color-success);
+        --toastify-icon-color-warning: var(--toastify-color-warning);
+        --toastify-icon-color-error: var(--toastify-color-error);
+        --toastify-toast-width: 320px;
+        --toastify-toast-background: #fff;
+        --toastify-toast-min-height: 64px;
+        --toastify-toast-max-height: 800px;
+        --toastify-font-family: sans-serif;
+        --toastify-z-index: 9999;
+        --toastify-text-color-light: #757575;
+        --toastify-text-color-dark: #fff;
+        --toastify-text-color-info: #fff;
+        --toastify-text-color-success: #fff;
+        --toastify-text-color-warning: #fff;
+        --toastify-text-color-error: #fff;
+        --toastify-spinner-color: #616161;
+        --toastify-spinner-color-empty-area: #e0e0e0;
+        --toastify-color-progress-light: linear-gradient(
+          90deg,
+          #4cd964,
+          #5ac8fa,
+          #007aff,
+          #34aadc,
+          #5856d6,
+          #ff2d55
+        );
+        --toastify-color-progress-dark: #bb86fc;
+        --toastify-color-progress-info: var(--toastify-color-info);
+        --toastify-color-progress-success: var(--toastify-color-success);
+        --toastify-color-progress-warning: var(--toastify-color-warning);
+        --toastify-color-progress-error: var(--toastify-color-error);
+        box-sizing: border-box;
+        color: #fefefe;
+        font-family: Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        transition: all 0.3s ease-in-out;
+        background-color: #555;
+        border-bottom: 1px solid #555;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        user-select: none;
+        width: 100%;
+        z-index: 1;
+      }
+      body {
+        --toastify-color-light: #fff;
+        --toastify-color-dark: #121212;
+        --toastify-color-info: #3498db;
+        --toastify-color-success: #07bc0c;
+        --toastify-color-warning: #f1c40f;
+        --toastify-color-error: #e74c3c;
+        --toastify-color-transparent: hsla(0, 0%, 100%, 0.7);
+        --toastify-icon-color-info: var(--toastify-color-info);
+        --toastify-icon-color-success: var(--toastify-color-success);
+        --toastify-icon-color-warning: var(--toastify-color-warning);
+        --toastify-icon-color-error: var(--toastify-color-error);
+        --toastify-toast-width: 320px;
+        --toastify-toast-background: #fff;
+        --toastify-toast-min-height: 64px;
+        --toastify-toast-max-height: 800px;
+        --toastify-font-family: sans-serif;
+        --toastify-z-index: 9999;
+        --toastify-text-color-light: #757575;
+        --toastify-text-color-dark: #fff;
+        --toastify-text-color-info: #fff;
+        --toastify-text-color-success: #fff;
+        --toastify-text-color-warning: #fff;
+        --toastify-text-color-error: #fff;
+        --toastify-spinner-color: #616161;
+        --toastify-spinner-color-empty-area: #e0e0e0;
+        --toastify-color-progress-light: linear-gradient(
+          90deg,
+          #4cd964,
+          #5ac8fa,
+          #007aff,
+          #34aadc,
+          #5856d6,
+          #ff2d55
+        );
+        --toastify-color-progress-dark: #bb86fc;
+        --toastify-color-progress-info: var(--toastify-color-info);
+        --toastify-color-progress-success: var(--toastify-color-success);
+        --toastify-color-progress-warning: var(--toastify-color-warning);
+        --toastify-color-progress-error: var(--toastify-color-error);
+        box-sizing: border-box;
+        color: #fefefe;
+        font-family: Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        transition: all 0.3s ease-in-out;
+        align-items: center;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        max-width: 100vw;
+        min-height: 100vh;
+        overflow: hidden auto;
+        padding-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="root">
+      <h1>Welcome to Todo App!</h1>
+      <p>That some thing you must know:</p>
+      <ul>
+        <li>This todo app does not require network to use!</li>
+        <li>
+          This todo app will <b>NOT save</b> immediately when you make changes!
+        </li>
+        <li>This todo app will <b>ONLY save</b> when you leave the page!</li>
+        <li>
+          This todo app uses localStorage to store data(When leaving the page)!
+        </li>
+        <li>
+          This todo app uses <b>toastify</b> to make pop-up notifications!
+        </li>
+      </ul>
+      <h2 class="usage">So, how can i using this?</h2>
+      <div class="step-box" id="add">
+        <h3 class="step">Step 1: Create a new todo</h3>
+        <p class="content">
+          By typing in the input, submit. You can add new task very easy
+        </p>
+        <p class="content">
+          If you add a "empty" task, don't worry, you can
+          <a class="link" href="#update">Update</a> or
+          <a class="link" href="#delete">Delete</a> it!
+        </p>
+        <img
+          src="/Baitapbuoi15/image/step01.bbb992f950b8aa1ccbc6.png"
+          alt="usage step 01"
+        />
+      </div>
+      <div class="step-box" id="update">
+        <h3 class="step">Step 2: Update a todo</h3>
+        <p class="content">
+          If you want to update a todo, just <b>Double click</b> on the content
+          of todo you want to update.
+        </p>
+        <p class="content">
+          By the "empty" task, if you change the content, you can see the id was
+          changed!
+        </p>
+        <p>
+          So, how about done task?
+          <a href="#status" class="link">Make it done!</a> or
+          <a href="#delete" class="link">Delete it!</a>
+        </p>
+        <img
+          src="/Baitapbuoi15/image/step02.7c9f31da3f90e7b88d0b.png"
+          alt="usage step 02"
+        />
+      </div>
+      <div class="step-box" id="status">
+        <h3 class="step">Step 3: Make it done!</h3>
+        <p class="content">
+          If you want to change a status of todo, just <b>One click</b> on the
+          <b>status</b> of todo you want to update.
+        </p>
+        <p>Or, you can <a href="#delete" class="link">Delete it!</a></p>
+        <img
+          src="/Baitapbuoi15/image/step03.66e0508c46c381eb96e9.png"
+          alt="usage step 03"
+        />
+      </div>
+      <div class="step-box" id="delete">
+        <h3 class="step">Step 4: Destroy it!</h3>
+        <p class="content">
+          If you don't want to change a status of todo, just
+          <b>Double click</b> on the <b>ID</b> of todo you want to delete.
+        </p>
+        <p>Or, you can <a href="#status" class="link">Change status!</a></p>
+        <p>For now, you can <a href="#add" class="link">Create new task!</a></p>
+        <img
+          src="/Baitapbuoi15/image/step04.206c9bcfc6b162e4d222.png"
+          alt="usage step 04"
+        />
+      </div>
+      <div class="step-box" id="delete">
+        <h3 class="step">Let do it!</h3>
+        <p class="content">
+          For now, you can enjoy it.
+          <a class="link" href="./app.html">Let do it!</a>
+        </p>
+        <p>Hmm, can i <a href="#" class="link">Read again?</a></p>
+        <img
+          src="/Baitapbuoi15/image/step04.206c9bcfc6b162e4d222.png"
+          alt="usage step 04"
+        />
+      </div>
+      <button class="btn link" onclick="dieu_huong()">Let do it!</button>
+      <div class="Toastify"></div>
+    </main>
+    <script src="js/onclick.js"></script>
+  </body>
+</html>

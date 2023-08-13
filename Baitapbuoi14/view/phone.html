@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone</title>
+    <style>
+      body {
+        overflow-wrap: break-word;
+        text-align: center;
+        box-sizing: border-box;
+        font-family: Source Code Pro, monospace;
+        font-size: 16px;
+        margin: 0;
+        transition: all 0.3s ease-in-out;
+        white-space: pre;
+        height: 100vh;
+        background: #191a2e;
+        color: #baa4da;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 24px;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
+      .errors {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <form action="" method="post">
+        <input
+          class="input"
+          type="text"
+          placeholder="Phone number..."
+          value=""
+        />
+        <span class="errors">{errors.phone}</span>
+        <button class="btn" type="submit">SUBMIT</button>
+      </form>
+    </div>
+  </body>
+</html>
