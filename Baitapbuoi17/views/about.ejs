@@ -1,0 +1,23 @@
+<% if(abouts?.length) {%>
+   <% abouts.forEach(({title,text,text1,read,link_img}) => {%>
+      <!-- about section start -->
+      <div class="about_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="about_taital_main">
+                     <div class="about_taital"><%= title%></div>
+                     <p class="about_text"><%= text%></p>
+                     <p class="about_text"><%= text1%></p>
+                     <div class="read_bt"><a href="#"><%= read%></a></div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="about_img"><img src="<%= link_img%>"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section end -->
+      <%}); %>
+      <%   } %>   

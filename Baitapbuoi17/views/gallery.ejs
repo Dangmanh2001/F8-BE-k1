@@ -1,0 +1,115 @@
+<% if(galleries?.length) {%>
+   <% galleries.forEach(({title,title1,link_img1,link_img2,link_img3,link_img4,link_img5,link_img6,link_img7,link_img8,link_img9}) => {%>
+      <!--header section end -->
+      <!-- gallery section start -->
+      <div class="gallery_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="gallery_taital"><%= title %></h1>
+                  <p class="gallery_text"><%= title1 %></p>
+               </div>
+            </div>
+            <div class="">
+               <div class="gallery_section_2">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img1 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img2 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img3 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="gallery_section_2">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img4 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img5 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="overlay">
+                                 <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img6 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="overlay">
+                                 <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="gallery_section_2">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img7 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img8 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="container_main">
+                           <img src="<%= link_img9 %>" alt="Avatar" class="image">
+                           <div class="overlay">
+                              <div class="text"><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="seemore_bt"><a href="#">See More</a></div>
+         </div>
+      </div>
+      <!-- gallery section end -->
+   
+
+      <!-- footer section end -->
+      <!-- copyright section start -->
+     
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <%}); %>
+      <%   } %>
