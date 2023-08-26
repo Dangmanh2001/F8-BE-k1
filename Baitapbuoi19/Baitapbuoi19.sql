@@ -28,14 +28,19 @@ CREATE TABLE oder_list(
     customer_id int,
     total_products int,
     total_amount_money float,
-    oder_created_time timestamp,
-    oder_updated_time timestamp
-    FOREIGN KEY(customer_id) REFERENCES customer(id)
+    order_status tinyint,
+    order_time timestamp,
+    FOREIGN KEY(customer_id) REFERENCES customers(id)
 );
 
 CREATE TABLE detail_order(
     id int NOT NULL PRIMARY KEY,
     customer_id int,
-    product_id
-)
+    product_id int,
+    order_status tinyint,
+    created_at timestamp,
+    updated_at timestamp,
+    FOREIGN KEY(customer_id) REFERENCES customers(id),
+    FOREIGN KEY(product_id) REFERENCES products(id)
+);
 
