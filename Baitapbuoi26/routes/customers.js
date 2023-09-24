@@ -12,8 +12,6 @@ router.post("/create", CustomerValidate(), CustomerController.store);
 router.get("/edit/:id", CustomerController.edit);
 router.post("/edit/:id", CustomerValidate(), CustomerController.update);
 
-router.post("/destroy/:id", CustomerController.destroy);
-
 router.post("/delete_a_lot", CustomerController.deleteCheckbox);
 
 module.exports = router;

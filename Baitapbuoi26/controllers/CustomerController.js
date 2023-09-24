@@ -168,35 +168,59 @@ module.exports = {
     res.redirect("/customers/edit/" + id);
   },
 
-  destroy: async (req, res) => {
-    const { id } = req.params;
-    const customer = db.Customer;
-    await customer.destroy({
-      where: {
-        id: id,
-      },
-      force: false, //Xóa vĩnh viễn
-    });
-    req.flash("msg", "Xóa thành công");
-    res.redirect("/customers");
-  },
+  // destroy: async (req, res) => {
+  //   const { id } = req.params;
+  //   const customer = db.Customer;
+  //   await customer.destroy({
+  //     where: {
+  //       id: id,
+  //     },
+  //     force: false, //Xóa vĩnh viễn
+  //   });
+  //   req.flash("msg", "Xóa thành công");
+  //   res.redirect("/customers");
+  // },
 
-  deleteCheckbox: (req, res) => {
+  deleteCheckbox: async (req, res) => {
     const data = Object.keys(req.body);
+    const values = Object.values(req.body);
     console.log(data);
+    console.log(values);
+    if (values[0] === "on") {
+      if (values.join("").includes("Xóa")) {
+        const customer = db.Customer;
+        const customerDelete = await customer.destroy({
+          where: {
+            email: data,
+          },
+        });
 
-    data.forEach(async (e) => {
-      if (!(Number(data[e]) === "NaN" && data[e] === "vehicle1")) {
+        req.flash("msgD", "Xóa thành công");
+
+        res.redirect("/customers");
+      } else {
         const customer = db.Customer;
         const customerDelete = await customer.destroy({
           where: {
             id: data,
           },
         });
+
         req.flash("msgD", "Xóa thành công");
 
         res.redirect("/customers");
       }
-    });
+    } else {
+      const customer = db.Customer;
+      const customerDelete = await customer.destroy({
+        where: {
+          email: data,
+        },
+      });
+
+      req.flash("msgD", "Xóa thành công");
+
+      res.redirect("/customers");
+    }
   },
 };
