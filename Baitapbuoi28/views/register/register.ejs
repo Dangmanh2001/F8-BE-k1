@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Đăng kí</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <style>
+      .err {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Đăng kí</h1>
+    <% if(msg?.length){ %>
+    <div class="alert alert-danger"><%= msg %></div>
+    <%}%>
+    <form class="row g-3 needs-validation" novalidate method="post">
+      <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="validationCustom01"
+          required
+          name="email"
+        />
+        <% if(email?.length){ %>
+        <p class="err"><% email %></p>
+        <%}%>
+        <span class="text-danger"><%= validate.getError(errors, "email") %></span>
+        <div class="valid-feedback"></div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="validationCustom02"
+          required
+          name="password"
+        />
+        <% if(password?.length){ %>
+        <p class="err"><% password %></p>
+        <%}%>
+        <div class="valid-feedback"></div>
+        <span class="text-danger"><%= validate.getError(errors, "password") %></span>
+        
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom02"
+          required
+          name="name"
+        />
+        <% if(name?.length){ %>
+        <p class="err"><% name %></p>
+        <%}%>
+        <div class="valid-feedback"></div>
+        <span class="text-danger"><%= validate.getError(errors, "name") %></span>
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Đăng kí</button>
+      </div>
+    </form>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener("submit", (event) => {}, false);
+          form.classList.add("was-validated");
+        });
+      })();
+    </script>
+  </body>
+</html>
