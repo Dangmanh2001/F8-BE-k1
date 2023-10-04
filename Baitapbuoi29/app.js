@@ -5,12 +5,24 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var expressLayouts = require("express-ejs-layouts");
+var flash = require("connect-flash");
+var session = require("express-session");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var sendEmailRouter = require("./routes/sendEmail");
 
 var app = express();
+
+app.use(
+  session({
+    secret: "Manh",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+app.use(flash());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

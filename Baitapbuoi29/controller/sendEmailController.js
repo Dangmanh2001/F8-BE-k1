@@ -5,7 +5,9 @@ const moment = require("moment");
 
 module.exports = {
   index: (req, res) => {
-    res.render("send_email/sendEmail");
+    const msg = req.flash("msg");
+    console.log(msg);
+    res.render("send_email/sendEmail", { msg });
   },
   send: async (req, res) => {
     const { emailSendTo, title, content } = req.body;
@@ -28,20 +30,19 @@ module.exports = {
       text: content, // plain text body
     });
 
-    transporter.sendMail(email, (error, info) => {
+    transporter.sendMail(email, async (error, info) => {
       if (error) {
         console.error(error);
       } else {
-        const sendEmails = sendEmail.create({
+        const sendEmails = await sendEmail.create({
           email_send_to: emailSendTo,
           title: title,
           content: content,
         });
-        console.log(info);
+        req.flash("msg", "Đã gửi");
+        res.redirect("/sendEmail/index");
       }
     });
-
-    res.send("Đã gửi");
   },
   history: async (req, res) => {
     const data = await sendEmail.findAll();

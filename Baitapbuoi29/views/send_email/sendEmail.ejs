@@ -1,4 +1,7 @@
 <form action="" method="post">
+  <% if(msg?.length){%>
+  <div class="alert alert-success"><%= msg %></div>
+  <% } %>
   <div class="mb-3">
     <label for="">Email gửi đến</label>
     <input
@@ -33,3 +36,6 @@
     <button type="submit" class="btn btn-primary">Gửi</button>
   </div>
 </form>
+<a style="text-decoration: none" class="d-grid mt-2" href="/sendEmail/history"
+  ><button class="btn btn-primary">Xem lịch sử tin nhắn</button></a
+>
