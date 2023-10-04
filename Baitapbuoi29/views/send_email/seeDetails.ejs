@@ -1,0 +1,22 @@
+<% if(!data?.length) {%>
+<div
+  class="mail-body"
+  style="
+    width: 600px;
+    margin: 30px auto;
+    background: #efefef;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px 3px #ccc;
+    padding: 15px;
+  "
+>
+  <p>To:<%= data.email_send_to %></p>
+
+  <p>Tiêu đề:<%= data.title %></p>
+  <p>Nội dung:</p>
+  <p><%= data.content %></p>
+  <a style="text-decoration: none" class="d-grid mt-2" href="/sendEmail/history"
+    ><button class="btn btn-primary">Quay lại</button></a
+  >
+</div>
+<% } %>
