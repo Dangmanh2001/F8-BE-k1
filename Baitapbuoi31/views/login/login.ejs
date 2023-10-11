@@ -1,0 +1,39 @@
+<h3 class="text-center">Đăng nhập</h3>
+<%- msg?.length ?`
+<div class="alert alert-success">${msg}</div>
+`:"" %>
+<form action="" method="post">
+  <div class="mb-3">
+    <label for="">Email</label>
+    <input
+      type="email"
+      name="email"
+      class="form-control"
+      placeholder="Email..."
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="">Mật khẩu</label>
+    <input
+      type="password"
+      name="password"
+      class="form-control"
+      placeholder="Mật khẩu..."
+      required
+    />
+  </div>
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+  </div>
+  <div class="d-grid">
+    <a href="/login/loginFacebook" class="btn btn-primary mt-3"
+      >Đăng nhập với Facebook</a
+    >
+  </div>
+  <div class="d-grid">
+    <a href="/login/loginGithub" class="btn btn-secondary mt-3"
+      >Đăng nhập với Github</a
+    >
+  </div>
+</form>
