@@ -5,8 +5,8 @@
       type="text"
       class="form-control"
       name="role"
-      placeholder="Tên role..."
-    />
+      value=<%=role.name%>
+    placeholder="Tên role..." />
   </div>
   <table class="table table-bordered">
     <thead>
@@ -22,25 +22,25 @@
           <div class="row">
             <div class="col">
               <label>
-                <input type="checkbox" name="permission" value="user.read" />
+                <input type="checkbox" name="permission" value="Xem" <%= data.includes("Xem")?"checked":"" %> />
                 Xem
               </label>
             </div>
             <div class="col">
               <label>
-                <input type="checkbox" name="permission" value="user.add" />
+                <input type="checkbox" name="permission" value="Thêm" <%= data.includes("Thêm") ? "checked" : "" %>/>
                 Thêm
               </label>
             </div>
             <div class="col">
               <label>
-                <input type="checkbox" name="permission" value="user.update" />
+                <input type="checkbox" name="permission" value="Sửa" <%= data.includes("Sửa")?"checked":"" %>/>
                 Sửa
               </label>
             </div>
             <div class="col">
               <label>
-                <input type="checkbox" name="permission" value="user.delete" />
+                <input type="checkbox" name="permission" value="Xóa"  <%= data.includes("Xóa")?"checked":"" %>/>
                 Xóa
               </label>
             </div>

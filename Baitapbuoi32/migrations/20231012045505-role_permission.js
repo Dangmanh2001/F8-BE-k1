@@ -3,7 +3,7 @@ const model = require("../models/index");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("role_permissions", {
+    await queryInterface.createTable("role_permission", {
       id: {
         allowNull: false,
         autoIncrement: true,
