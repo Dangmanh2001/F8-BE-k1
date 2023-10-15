@@ -1,0 +1,33 @@
+<h1>Danh sách người dùng</h1>
+<form action="" method="post">
+  <a class="btn btn-primary" href="/users/addUser">Thêm mới</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th width="5%">STT</th>
+        <th>Tên</th>
+        <th>Email</th>
+        <th width="15%">Phân quyền</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(({name, email, id}, index) => { %>
+
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= name %></td>
+        <td><%= email %></td>
+        <td>
+          <a href="/users/permission/<%= id %>" class="btn btn-success"
+            >Phân quyền</a
+          >
+        </td>
+        <td>
+          <a href="#" class="btn btn-warning">Sửa</a>
+        </td>
+      </tr>
+      <%}) %>
+    </tbody>
+  </table>
+  <a class="btn btn-primary" href="/logout">Đăng xuất</a>
+</form>
