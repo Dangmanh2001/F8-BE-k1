@@ -43,14 +43,48 @@ module.exports = {
   handleUpdate: async (req, res) => {
     const { permission, role } = req.body;
     const id = req.params.id;
-    await model.Role.update(
-      { name: role },
-      {
-        where: {
-          id: id,
-        },
+ 
+    if(!permission){
+      await model.Role.update(
+        { name: role },
+        {
+          where: {
+            id: id,
+          },
+        }
+      );
+
+      const Role = await model.Role.findByPk(id);
+
+      const Permissions = await model.Permission.findAll();
+    
+      const data = Permissions.map((permission) => {
+        return permission.value;
+      });
+
+      if (data?.length) {
+        for (let i = 0; i < data.length; i++) {
+          await Role.removePermission(
+            await model.Permission.findOne({
+              where: { value: data[i] },
+            })
+          );
+        }
+  
+      
       }
-    );
+      req.flash("msg", "Sửa thành công");
+      res.redirect("/users");
+    }else{
+      await model.Role.update(
+        { name: role },
+        {
+          where: {
+            id: id,
+          },
+        }
+      );
+    
     const Role = await model.Role.findByPk(id);
 
     const Permissions = await model.Permission.findAll();
@@ -75,5 +109,6 @@ module.exports = {
     }
     req.flash("msg", "Sửa thành công");
     res.redirect("/users");
+  }
   },
 };

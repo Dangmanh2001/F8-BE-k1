@@ -6,7 +6,8 @@ const passport = require("passport");
 /* GET users listing. */
 const isLogin = (req, res, next) => {
   if (req.user) {
-    res.redirect("/users");
+    res.redirect("/users");4
+    return
   }
 
   next();
