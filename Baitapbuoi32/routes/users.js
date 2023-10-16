@@ -24,7 +24,7 @@ const isErr = async (req, res, next) => {
 };
 
 /* GET users listing. */
-router.get("/", userController.index);
+router.get("/",isLogout, userController.index);
 
 router.get("/permission", isLogout, userController.permission);
 router.post("/permission", isLogout, userController.handlePermission);
