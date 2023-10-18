@@ -1,5 +1,12 @@
 <h2>Phân quyền</h2>
 <form action="" method="post">
+  <div class="mb-3">
+    <select class="form-select" onchange="window.location.href='/users/update/'+this.value">
+      <% roles.forEach(({id,name})=>{ %>
+          <option value="<%= id %>" <%= +id === +role.id ? 'selected' : "" %>><%= name %></option>
+      <%}) %> 
+  </select>
+  </div>
   <div class="col mb-2">
     <input
       type="text"

@@ -1,0 +1,18 @@
+<h3>Rút gọn link</h3>
+<%- err.length ? `
+<div class="alert alert-danger">${err}</div>
+`: ''; %>
+<form action="" method="post">
+    <div class="mb-3">
+      <label for="">URL</label>
+      <input
+        type="text"
+        name="original_link"
+        class="form-control"
+        placeholder="Nhập URL..."
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Rút gọn URL</button>
+    
+  </form>
+  <a><%= short_url %></a>

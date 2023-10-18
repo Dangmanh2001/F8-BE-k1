@@ -33,12 +33,13 @@ module.exports = {
   update: async (req, res) => {
     const id = req.params.id;
     const role = await model.Role.findByPk(id, { include: model.Permission });
+    const roles = await model.Role.findAll()
 
     const data = role.Permissions.map((permission) => {
       return permission.value;
     });
     console.log(data.includes("Thêm"));
-    res.render("user/updatePermission", { role, data });
+    res.render("user/updatePermission", { role, data,roles });
   },
   handleUpdate: async (req, res) => {
     const { permission, role } = req.body;
