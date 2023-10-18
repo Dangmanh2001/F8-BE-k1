@@ -18,15 +18,6 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
-      shorten_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: "short_links"
-          },
-          key: 'id'
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -17,9 +17,13 @@ module.exports = new LocalStrategy(
       done(null, false, { message: "Email không tồn tại" });
       return;
     }
+    
 
     const hash = user.password;
+
+    console.log(password,hash)
     bcrypt.compare(password, hash, (err, result) => {
+      console.log(err)
       if (result) {
         done(null, user);
         return;

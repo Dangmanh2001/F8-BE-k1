@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      short_link.hasOne(models.User, {foreignKey: "shorten_id"})
+      short_link.belongsTo(models.User, {foreignKey: "user_id"})
     }
   }
   short_link.init({
@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     views: {
       type:DataTypes.INTEGER,
       defaultValue:0
-    }
+    },
+    user_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'short_link',
