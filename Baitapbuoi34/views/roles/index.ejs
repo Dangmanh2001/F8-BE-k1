@@ -1,0 +1,41 @@
+<h2>Quản lý Roles</h2>
+<% if(permissionUtil.isButton(permissions, "users.add")){%>
+  <a href="/roles/add" class="btn btn-primary mb-2">Thêm mới</a>
+<%} %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <% if(permissionUtil.isButton(permissions, "users.update")){%>
+        
+        <th width="5%">Sửa</th>
+     
+    <%} %>
+      
+    <% if(permissionUtil.isButton(permissions, "users.delete")){%>
+        
+      <th width="5%">Xóa</th>
+    
+  <%} %>
+    </tr>
+  </thead>
+  <tbody>
+    <% roles.forEach(({id, name}) => { %>
+    <tr>
+      <td><%= name %></td>
+      <% if(permissionUtil.isButton(permissions, "users.update")){%>
+        <td><a href="/roles/edit/<%= id %>" class="btn btn-warning">Sửa</a></td>
+      <%} %>
+      <% if(permissionUtil.isButton(permissions, "users.delete")){%>
+        <td>
+          <a href="#" class="btn btn-danger delete-action">Xóa</a>
+          <form action="/roles/delete/<%= id %>" method="post"></form>
+        </td>
+      <%} %>
+      
+    </tr>
+    <% }) %>
+
+  </tbody>
+</table>

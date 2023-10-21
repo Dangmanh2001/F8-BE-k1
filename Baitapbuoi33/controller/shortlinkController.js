@@ -56,6 +56,7 @@ module.exports = {
         const msg = req.flash("msg")
         const shortLinks = await model.short_link.findAll({include:model.User})
         
+        //Views
       
         res.render("short_link/manager",{msg,shortLinks,req})
     },

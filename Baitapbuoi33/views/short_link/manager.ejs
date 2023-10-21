@@ -9,18 +9,19 @@
         <th width="5%">STT</th>
         <th>Link rút gọn</th>
         <th>Link gốc</th>
+        <th>Views</th>
         <th>Sửa</th>
         <th>Xóa</th>
       </tr>
     </thead>
     <tbody>
-      <% shortLinks.forEach(({shorten,original,id,User}, index) => { %>
+      <% shortLinks.forEach(({shorten,original,views,id,User}, index) => { %>
 <% if(User.id === req.user.id){%>
   <tr>
     <td><%= index + 1 %></td>
     <td><%= shorten %></td>
     <td><%= original %></td>
-
+    <td><%= views %></td>
 
     <td>
       <a href="/short_link/edit/<%= id  %>" class="btn btn-warning">Sửa</a>

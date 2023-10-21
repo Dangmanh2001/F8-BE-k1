@@ -1,0 +1,51 @@
+<h2>Danh sách người dùng</h2>
+<% if(permissionUtil.isButton(permissions, "users.add")){%>
+  <a href="#" class="btn btn-primary">Thêm mới</a>
+<%} %>
+<hr />
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th width="5%">STT</th>
+      <th>Tên</th>
+      <th>Email</th>
+      <th width="15%">Phân quyền</th>
+      <% if(permissionUtil.isButton(permissions, "users.update")){%>
+        
+          <th width="5%">Sửa</th>
+       
+      <%} %>
+      
+      <% if(permissionUtil.isButton(permissions, "users.delete")){%>
+        
+          <th width="5%">Xóa</th>
+        
+      <%} %>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(({id, name, email}, index) => { %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= name %></td>
+      <td><%= email %></td>
+      <td>
+        <a href="/users/permission/<%= id %>" class="btn btn-success">Phân quyền</a>
+      </td>
+      <% if(permissionUtil.isButton(permissions, "users.update")){%>
+        <td>
+          <a href="#" class="btn btn-warning">Sửa</a>
+        </td>
+      <%} %>
+      
+      <% if(permissionUtil.isButton(permissions, "users.delete")){%>
+        <td>
+          <a href="#" class="btn btn-danger">Xóa</a>
+        </td>
+      <%} %>
+    </tr>
+    <%}) %>
+
+  </tbody>
+</table>
