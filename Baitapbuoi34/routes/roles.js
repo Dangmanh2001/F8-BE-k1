@@ -11,10 +11,17 @@ router.get("/",async function(req,res,next){
  }, RoleController.index);
 router.get("/add",async function(req,res,next){
     const permissions= await permissionMiddleware.role(req,res)
-    if(permissions.includes("users.add")){
-        next()
+    if(permissions.includes("users.read")){
+        if( permissions.includes("users.add")){
+            next()
+        }else{
+            res.redirect("/")
+            return
+        }
+    }else {
+        res.redirect("/")
     }
-     permissions.includes("users.read")?next():res.redirect("/");
+       
  }, RoleController.add);
 router.post("/add", RoleController.handleAdd);
 
@@ -27,6 +34,8 @@ router.get("/edit/:id",async function(req,res,next){
             res.redirect("/")
             return
         }
+    }else{
+        res.redirect("/")
     }
         
     
@@ -43,6 +52,8 @@ router.post("/delete/:id",async function(req,res,next){
             res.redirect("/")
             return
         }
+    }else{
+        res.redirect("/")
     }
         
     
