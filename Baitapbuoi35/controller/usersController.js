@@ -17,25 +17,38 @@ module.exports = {
     const { id } = req.params;
 
     const user_by_id = await model.User.findByPk(id);
-    if (!validateEmail(email)) {
-      res.status(401).json({
-        status: "Error",
-        err: "Email không đúng định dạng",
-      });
-      return;
-    }
+
     if (user_by_id) {
       if (!name) {
-        name = "";
+        res.status(401).json({
+          status: "Error",
+          err: "Nhập tên",
+        });
+        return;
       }
       if (!email) {
-        email = "";
+        res.status(401).json({
+          status: "Error",
+          err: "Nhập email",
+        });
+        return;
       }
 
       if (!password) {
-        password = "";
+        res.status(401).json({
+          status: "Error",
+          err: "Nhập pass",
+        });
+        return;
       } else {
         password = await bcrypt.hash(password, saltRounds);
+      }
+      if (!validateEmail(email)) {
+        res.status(401).json({
+          status: "Error",
+          err: "Email không đúng định dạng",
+        });
+        return;
       }
 
       if (user_by_id?.email === email) {
