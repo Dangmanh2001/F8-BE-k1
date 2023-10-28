@@ -19,6 +19,13 @@ module.exports = {
     const user_by_id = await model.User.findByPk(id);
 
     if (user_by_id) {
+      if (!name && !email && !password) {
+        res.status(401).json({
+          status: "Error",
+          err: "Nhập đầy đủ thông tin",
+        });
+        return;
+      }
       if (!name) {
         res.status(401).json({
           status: "Error",

@@ -1,25 +1,25 @@
 var express = require("express");
 const limit = require("../middleware/limitMiddleware");
 const usersController = require("../controller/usersController");
-const banMiddleware = require("../middleware/banMiddleware");
+const revokeMiddleware = require("../middleware/revokeMiddleware");
 var router = express.Router();
 
 /* GET users listing. */
 router.put(
   "/update/:id",
-  banMiddleware,
+  revokeMiddleware,
   limit.apiLimiter,
   usersController.updatePut
 );
 router.patch(
   "/update/:id",
-  banMiddleware,
+  revokeMiddleware,
   limit.apiLimiter,
   usersController.updatePatch
 );
 router.delete(
   "/delete/:id",
-  banMiddleware,
+  revokeMiddleware,
   limit.apiLimiter,
   usersController.delete
 );

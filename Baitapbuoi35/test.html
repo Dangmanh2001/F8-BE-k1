@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const getUsers = async () => {
+        const res = await fetch(`http://localhost:3000/users`, {
+          headers: {
+            "x-api-key": "27905714-c1e0-4839-a22c-fe0596031602",
+          },
+        });
+        const data = await res.json();
+        console.log(data);
+      };
+
+      getUsers();
+    </script>
+  </body>
+</html>
