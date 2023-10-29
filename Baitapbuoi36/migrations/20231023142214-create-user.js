@@ -1,9 +1,8 @@
 "use strict";
-const model = require("../models/index");
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Fileuploads", {
+    await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,18 +12,15 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      mimetype: {
+      email: {
         type: Sequelize.STRING,
       },
-      link: {
+      password: {
         type: Sequelize.STRING,
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Users",
-          key: "id",
-        },
+      ban: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: 0,
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Fileuploads");
+    await queryInterface.dropTable("Users");
   },
 };
