@@ -22,5 +22,7 @@ cron.schedule("*/5 * * * * *", async () => {
         id: id,
       },
     });
+  } else {
+    return;
   }
 });
