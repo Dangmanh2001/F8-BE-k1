@@ -1,0 +1,29 @@
+<h1>Danh sách người dùng</h1>
+<% if(msg?.length){ %>
+<div class="col alert alert-success"><%= msg %></div>
+<% } %>
+<form action="" method="post">
+  <a class="btn btn-primary" href="/users/permission">Thêm mới</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th width="5%">STT</th>
+        <th>Tên</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% roles.forEach(({name,id}, index) => { %>
+
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= name %></td>
+
+        <td>
+          <a href="/users/update/<%= id %>" class="btn btn-warning">Sửa</a>
+        </td>
+      </tr>
+      <%}) %>
+    </tbody>
+  </table>
+  <a class="btn btn-primary" href="/logout">Đăng xuất</a>
+</form>
